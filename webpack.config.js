@@ -8,8 +8,9 @@ module.exports = (env) => {
     mode: 'development',
     entry: './src/app.js',
     output: {
-      path: path.join(__dirname, 'public'),
-      filename: 'bundle.js'
+      path: path.join(__dirname, 'public', 'dist'),
+      filename: 'bundle.js',
+      publicPath: '/dist/'
     },
     performance: {
       hints: false,
