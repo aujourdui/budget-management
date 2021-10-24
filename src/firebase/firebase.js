@@ -2,6 +2,9 @@
 // import './firebase/firebase';
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, set, get, remove, update, child, onValue, off, push, onChildRemoved, onChildChanged, onChildAdded } from "firebase/database";
+import { getAuth , GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
+
+
 
 const config = {
   apiKey: process.env.FIREBASE_API_KEY,
@@ -17,8 +20,18 @@ const config = {
 const app = initializeApp(config);
 const database = getDatabase(app);
 const db = getDatabase();
+const auth = getAuth();
 
-export { getDatabase, ref, set, get, remove, update, child, onValue, off, push, onChildRemoved, onChildChanged, onChildAdded, db as default };
+
+// const GoogleProvider = new auth( GoogleAuthProvider());
+
+// export class GoogleAuthProvider extends Base0AuthProvider {}
+
+const provider = new GoogleAuthProvider();
+
+export { getDatabase, ref, set, get, remove, update, child, onValue, off, push, onChildRemoved, onChildChanged, onChildAdded, auth, provider, onAuthStateChanged, signInWithPopup, signOut, db as default };
+
+
 
 // child_removed
 // const starCountRef = ref(db, 'expenses');
