@@ -7075,10 +7075,10 @@
 "node-uuid@~1.4.7":
   "version" "1.4.7"
 
-"node@^17.0.1":
-  "integrity" "sha512-8sSc6kJ0cKU769B+y0e/Z1p6MMh4+eAfIVewkJ0vTwUJKAMtdfDewj1qxfG3cXUfNpnewKm1s5P4yMV300Hcuw=="
-  "resolved" "https://registry.npmjs.org/node/-/node-17.0.1.tgz"
-  "version" "17.0.1"
+"node@^16.11.0":
+  "integrity" "sha512-lFyeH8to2Qp7XSea1e938ztw8RhbEJ2IifoFo9r0Rpvs+B3LMrSRO52Qy66nrdlg0jJd3v/JwWE86UsUPo/m8w=="
+  "resolved" "https://registry.npmjs.org/node/-/node-16.12.0.tgz"
+  "version" "16.12.0"
   dependencies:
     "node-bin-setup" "^1.0.0"
 

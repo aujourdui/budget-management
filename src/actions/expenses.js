@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import db from '../firebase/firebase';
-import { getDatabase, ref, set, get, remove, update, child, onValue, off, push, onChildRemoved, onChildChanged, onChildAdded } from '../firebase/firebase'
+import { getDatabase, ref, set, get, remove, update, child, onValue, off, push, onChildRemoved, onChildChanged, onChildAdded} from '../firebase/firebase'
 
 // ADD_EXPENSE
 export const addExpense = ({
@@ -30,7 +30,7 @@ export const startAddExpense = (expenseData = {}) => {
     } = expenseData;
     const expense = { description, note, amount, createdAt };
 
-    return push(ref(db, 'expenses'), {expense}).then((ref) => {
+    return push(ref(db, 'expenses'), expense).then((ref) => {
       dispatch(addExpense({
         id: ref.key,
         ...expense,
@@ -61,3 +61,42 @@ export const editExpense = (id, updates) => ({
   id,
   updates
 })
+
+//SET_EXPENSES
+export const setExpenses = (expenses) => ({
+  type: 'SET_EXPENSES',
+  expenses
+});
+
+export const startSetExpenses = () =>
+{
+  return (dispatch) => {
+
+    const dbRef = ref(db);
+    return get(child(dbRef, 'expenses')).then((snapshot) => {
+      const expenses = [];
+
+      snapshot.forEach((childSnapshot) => {
+        expenses.push({
+          id: childSnapshot.key,
+          ...childSnapshot.val()
+        });
+      });
+      dispatch(setExpenses(expenses));
+    });
+  };
+};
+
+// const dbRef = ref(db);
+// get(child(dbRef, 'expenses'))
+// .then((snapshot) => {
+//   const expenses = [];
+
+//   snapshot.forEach((childSnapshot) => {
+//     expenses.push({
+//       id: childSnapshot.key,
+//       ...childSnapshot.val()
+//     });
+//   });
+//   console.log(expenses);
+// });

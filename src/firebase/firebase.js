@@ -1,7 +1,7 @@
 // require("./firebase/firebase");
 // import './firebase/firebase';
 import { initializeApp } from 'firebase/app';
-import { getDatabase, ref, set, get, remove, update, child, onValue, off, push, onChildRemoved, onChildChanged, onChildAdded} from "firebase/database";
+import { getDatabase, ref, set, get, remove, update, child, onValue, off, push, onChildRemoved, onChildChanged, onChildAdded } from "firebase/database";
 
 const config = {
   apiKey: process.env.FIREBASE_API_KEY,
