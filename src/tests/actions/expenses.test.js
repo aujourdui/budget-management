@@ -74,7 +74,7 @@ test('Should edit expenses on firebase', (done) => {
     const dbRef = ref(db);
     return get(child(dbRef, `expenses/${id}`));
   }).then((snapshot) => {
-    expect(snapshot.val().amount).toBe(900);
+    expect(snapshot.val().amount).toBe(updates.amount);
     done();
   });
 });
