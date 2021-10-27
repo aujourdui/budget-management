@@ -13,7 +13,9 @@
     "heroku-postbuild": "yarn run build:prod"
   },
   "dependencies": {
+    "@babel/polyfill": "7.12.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "core-js": "^3.12.1",
     "css-loader": "^6.4.0",
     "expect.js": "^0.3.1",
     "express": "4.17.1",

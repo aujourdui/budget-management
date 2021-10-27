@@ -1,5 +1,8 @@
 // require("./firebase/firebase");
 // import './firebase/firebase';
+// import firebase from 'firebase/app';
+// import 'firebase/auth';
+// import 'firebase/database'
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, set, get, remove, update, child, onValue, off, push, onChildRemoved, onChildChanged, onChildAdded } from "firebase/database";
 import { getAuth , GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";

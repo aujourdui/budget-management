@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 import AppRouter, { history } from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import { startSetExpenses } from './actions/expenses';
@@ -12,6 +14,7 @@ import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 import './firebase/firebase';
 import { auth, onAuthStateChanged } from "./firebase/firebase";
+import LoadingPage from './components/LoadingPage';
 
 const store = configureStore();
 
@@ -31,7 +34,7 @@ const renderApp = () => {
   }
 };
 
-ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
+ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
